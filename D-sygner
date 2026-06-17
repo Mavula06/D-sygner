@@ -1,0 +1,16 @@
+bash
+
+mkdir -p /home/claude/dsygner/{app,components,constants,hooks,lib,services,store,types,assets} && \
+mkdir -p /home/claude/dsygner/app/\(auth\) && \
+mkdir -p /home/claude/dsygner/app/\(customer\)/\(tabs\) && \
+mkdir -p /home/claude/dsygner/app/\(provider\)/\(tabs\) && \
+mkdir -p /home/claude/dsygner/app/\(admin\)/\(tabs\) && \
+mkdir -p /home/claude/dsygner/components/{auth,customer,provider,admin,shared,ui} && \
+mkdir -p /home/claude/dsygner/lib/{firebase,payment,validation} && \
+mkdir -p /home/claude/dsygner/services && \
+mkdir -p /home/claude/dsygner/store/slices && \
+echo "Structure created"
+Output
+
+Structure created
+
