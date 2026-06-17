@@ -35,8 +35,6 @@
       "versionCode": 1,
       "permissions": [
         "CAMERA",
-        "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE",
         "RECEIVE_BOOT_COMPLETED",
         "VIBRATE",
         "RECORD_AUDIO",
@@ -92,6 +90,6 @@
         "projectId": "e774b15e-b38f-424d-aace-50915592c882"
       }
     },
-    "owner": "@dsyngers-team"
+    "owner": "D-syngers-team"
   }
 }
