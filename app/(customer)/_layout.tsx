@@ -13,7 +13,7 @@ export default function CustomerLayout() {
       <Stack.Screen name="chat/[conversationId]" options={{ animation: 'slide_from_right' }} />
       <Stack.Screen name="review/[bookingId]" options={{ animation: 'slide_from_bottom' }} />
       <Stack.Screen name="profile/edit" options={{ animation: 'slide_from_right' }} />
-      <Stack.Screen name="search" options={{ animation: 'slide_from_top' }} />
+      <Stack.Screen name="search" options={{ animation: 'slide_from_bottom' }} />
     </Stack>
   );
 }

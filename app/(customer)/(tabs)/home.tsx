@@ -128,8 +128,7 @@ export default function HomeScreen() {
             style={styles.heroGradient}
           >
             <View style={styles.heroContent}>
-              <Text style={styles.heroTitle}>Book Professional{'
-'}Services Today</Text>
+              <Text style={styles.heroTitle}>Book Professional{`\n`}Services Today</Text>
               <Text style={styles.heroSubtitle}>500+ verified professionals near you</Text>
               <View style={styles.heroSearchBar}>
                 <Ionicons name="search-outline" size={18} color={Colors.textMuted} />
