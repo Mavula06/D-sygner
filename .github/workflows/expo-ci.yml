@@ -1,59 +1,28 @@
-name: Dsygner Expo CI + Auto Versioning
+name: Expo CI
 
 on:
-push:
-branches: ["main"]
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-version-and-test:
-runs-on: ubuntu-latest
+  version-and-test:
+    runs-on: ubuntu-latest
 
-permissions:
-  contents: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-steps:
-  - name: Checkout Repository
-    uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-  - name: Setup Node.js (LTS)
-    uses: actions/setup-node@v4
-    with:
-      node-version: lts/*
+      - name: Install Dependencies
+        run: npm install --legacy-peer-deps
 
-  - name: Install Dependencies
-    run: npm install
-
-  - name: Auto Increment Version
-    run: |
-      node -e "
-      const fs = require('fs');
-      const path = './app.json';
-
-      const app = JSON.parse(fs.readFileSync(path, 'utf8'));
-
-      // Ensure fields exist
-      app.expo.version = app.expo.version || '1.0.0';
-      app.expo.android = app.expo.android || {};
-      app.expo.android.versionCode = (app.expo.android.versionCode || 1) + 1;
-
-      // Bump patch version (1.0.0 -> 1.0.1)
-      const parts = app.expo.version.split('.');
-      parts[2] = String((parseInt(parts[2] || '0') + 1));
-      app.expo.version = parts.join('.');
-
-      fs.writeFileSync(path, JSON.stringify(app, null, 2));
-      "
-
-  - name: Commit Version Update
-    run: |
-      git config user.name "github-actions"
-      git config user.email "github-actions@github.com"
-      git add app.json
-      git commit -m "Auto version bump [skip ci]" || echo "No changes to commit"
-      git push
-
-  - name: Expo Health Check
-    run: npx expo-doctor
-
-  - name: Run Lint (optional)
-    run: npm run lint --if-present
+      - name: Run Expo Doctor
+        run: npx expo-doctor
