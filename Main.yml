@@ -1,0 +1,38 @@
+name: Expo Build
+
+on:
+push:
+branches:
+- main
+
+jobs:
+build:
+runs-on: ubuntu-latest
+
+steps:
+  - name: Checkout Repository
+    uses: actions/checkout@v4
+
+  - name: Setup Node.js
+    uses: actions/setup-node@v4
+    with:
+      node-version: 22
+
+  - name: Install Dependencies
+    run: npm install --legacy-peer-deps
+
+  - name: Install EAS CLI
+    run: npm install -g eas-cli
+
+  - name: Verify Expo Project
+    run: npx expo-doctor
+
+  - name: Login to Expo
+    run: eas whoami
+    env:
+      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+  - name: Build Android Production
+    run: eas build --platform android --profile production --non-interactive
+    env:
+      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
