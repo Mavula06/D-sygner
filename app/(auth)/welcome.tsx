@@ -77,7 +77,7 @@ export default function WelcomeScreen() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.slide}>
-            <View style={[styles.iconContainer, { borderColor: item.accent }]}>
+            <View style={[styles.iconContainer, { borderColor: item.accent }]}> 
               <Text style={[styles.icon, { color: item.accent }]}>{item.emoji}</Text>
             </View>
             <Text style={styles.title}>{item.title}</Text>

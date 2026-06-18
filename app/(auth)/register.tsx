@@ -250,7 +250,7 @@ export default function RegisterScreen() {
             )}
           />
           {errors.agreeToTerms && (
-            <Text style={[styles.errorText, { marginTop: -Spacing.sm }]}>
+            <Text style={[styles.errorText, { marginTop: -Spacing.sm }]}> 
               {errors.agreeToTerms.message}
             </Text>
           )}
