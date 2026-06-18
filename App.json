@@ -82,14 +82,14 @@
     "experiments": {
       "typedRoutes": true
     },
-    "extra": {
-      "router": {
-        "origin": false
-      },
-      "eas": {
-        "projectId": "e774b15e-b38f-424d-aace-50915592c882"
-      }
-    },
-    "owner": "dsygners-team"
+      "extra": {
+  "router": {
+    "origin": false
+  },
+  "eas": {
+    "projectId": "e774b15e-b38f-424d-aace-50915592c882"
+  }
+},
+"owner": "dsygners-team"
   }
 }
